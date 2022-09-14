@@ -1,23 +1,50 @@
-/* Large */
+
 .navigation {
-    display: flex;
-    flex-flow: row wrap;
-    /* This aligns items to the end line on main-axis */
-    justify-content: flex-end;
-  }
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
   
-  /* Medium screens */
-  @media all and (max-width: 800px) {
-    .navigation {
-      /* When on medium sized screens, we center it by evenly distributing empty space around items */
-      justify-content: space-around;
-    }
+  list-style: none;
+  margin: 0; 
+  background: deepskyblue;
+}
+
+.navigation a {
+  /* text-decoration put to none will remove line under text */
+  text-decoration: none; 
+  /* anchor is an inline element, we change the display to block: we can add padding above and below the element */
+  display: block;
+  /* adding a padding around the anchor elements 1em = 1 time the size of the current font  */
+  padding: 1em;
+  /* adding color white to the anchor elements */
+  color: white;
+}
+
+.navigation a:hover {
+  /* background color will change to chosen color if you hover the anchor element (+padding) */
+  background: #1565C0;
+}
+
+/* If screen is less then 800 px --> justify-content will be changed to space around
+ this will cause the anchor elements to use the whole available spac */
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
   }
-  
-  /* Small screens */
-  @media all and (max-width: 500px) {
-    .navigation {
-      /* On small screens, we are no longer using row direction but column */
-      flex-direction: column;
-    }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    flex-flow: column wrap;
+    padding: 0;
   }
+  .navigation a { 
+    text-align: center; 
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255,0.3); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  }
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
